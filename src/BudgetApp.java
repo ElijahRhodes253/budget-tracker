@@ -27,11 +27,12 @@ public class BudgetApp {
         }
 
         //BudgetCategory groceries = new BudgetCategory("Groceries", 500, 401);
-        Collections.sort(budgets);
+        Collections.sort(budgets, Collections.reverseOrder());
         for(BudgetCategory x : budgets)
         {
             System.out.println(x);
         }
+        System.out.println("\n" + budgetDifference(budgets));
     }
 
     /**
@@ -50,6 +51,11 @@ public class BudgetApp {
         // TODO: You will implement this method in Wave 4
         // Note that this method SHOULD NOT have a print statement.
         // It should instead return the value.
-        return -1;
+        int total = 0;
+        for(BudgetCategory x : categories)
+        {
+            total += x.getDifference();
+        }
+        return total;
     }
 }
